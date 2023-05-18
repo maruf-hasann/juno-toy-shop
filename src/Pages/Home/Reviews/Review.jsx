@@ -4,7 +4,7 @@ import client2 from '../../../assets/Clinet/Rectangle-20.jpg'
 import client3 from '../../../assets/Clinet/Rectangle-18.jpg'
 const Review = () => {
     return (
-      <div>
+      <div className=" my-10">
         <h1 className="text-5xl text-center font-bold text-[#181d4e] mb-13 ">
           Review
         </h1>
