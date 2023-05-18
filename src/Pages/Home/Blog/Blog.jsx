@@ -20,7 +20,7 @@ const Blog = () => {
             <button className="button">Read More</button>
           </div>
         </div>{" "}
-        <div className="flex bg-[#f5efd0]  rounded-xl gap-6 items-center">
+        <div className="flex bg-[#faf7eb]  rounded-xl gap-6 items-center">
           <img src={blog2} alt="" className="w-1/2 h-auto rounded-xl" />
 
           <div className="space-y-4">
