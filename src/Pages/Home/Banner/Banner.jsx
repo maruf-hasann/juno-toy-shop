@@ -3,10 +3,10 @@ import Img from '../../../assets/Banner/creative-image-1-copyright.webp'
 
 const Banner = () => {
     return (
-      <div className="my_container">
+      <div className="my_container mb-14">
         <div className='lg:flex lg:justify-between lg:items-center'>
           {/* Text Area */}
-          <div className='lg:space-y-6 text-center  lg:text-start space-y-5 lg:space-y-0 '>
+          <div className='lg:space-y-6 text-center  lg:text-start space-y-5  '>
             <h1 className="font-bold text-5xl lg:text-6xl text-[#181d4e] lg:leading-[1.14]">
               Find your best<br className="hidden lg:block"></br> Toys for your
               <br className="hidden lg:block"></br> Children
