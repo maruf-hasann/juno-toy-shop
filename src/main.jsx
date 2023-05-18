@@ -14,6 +14,7 @@ import Blogs from "./Pages/Blogs/Blogs";
 import AllToys from "./Pages/AllToys/AllToys";
 import MyToys from "./Pages/MyToys/MyToys";
 import AddToys from "./Pages/AddToys/AddToys";
+import Error from "./Pages/ErrorPage/Error";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,12 @@ const router = createBrowserRouter([
         element:<AddToys></AddToys>
       },
     ],
-  },
+  }, 
+     {
+        path: '*',
+        element:<Error></Error>
+      
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
