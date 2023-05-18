@@ -24,7 +24,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/all-toys"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 All Toys
@@ -32,7 +32,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/my-toys"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 My Toys
@@ -40,7 +40,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/add-toys"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 Add A Toys
@@ -56,7 +56,9 @@ const Header = () => {
             </li>
           </ul>
           <div className="hidden lg:block">
-            <button className="btn btn-warning">Login</button>
+            <Link to="/login">
+              <button className="button">Login</button>
+            </Link>
           </div>
 
           {/* Mobile Menu */}
