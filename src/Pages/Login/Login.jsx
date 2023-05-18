@@ -1,14 +1,16 @@
 import React from "react";
-import img from "../../assets/Form/undraw_sign_up_n6im.svg";
+import Lottie from "lottie-react";
+import animation from '../../assets/Lotte/lotte.json'
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
     <div>
       <h1 className="text-5xl text-center font-bold text-[#181d4e] ">LogIn</h1>
-      <div className="hero">
+      <div className="hero lg:my-14">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
+            <form className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-semibold text-xl">
@@ -16,7 +18,7 @@ const Login = () => {
                   </span>
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   placeholder="Email"
                   className="input input-bordered font-semibold"
                   name="email"
@@ -35,18 +37,16 @@ const Login = () => {
                   name="password"
                 />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover font-semibold">
-                    Forgot password?
-                  </a>
+                  <Link to='/register' className="font-semibold">Or register </Link>
                 </label>
               </div>
               <div className="form-control mt-6">
                 <button className="button">Login</button>
               </div>
-            </div>
+            </form>
           </div>
-          <div className="text-center lg:text-left mt-10 lg:mt-0">
-            <img src={img} alt="" className="mx-auto block" />
+          <div className="text-center lg:text-left mt-10 lg:mt-0 lg:mr-20">
+            <Lottie animationData={animation}></Lottie>
           </div>
         </div>
       </div>
