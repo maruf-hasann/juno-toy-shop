@@ -1,9 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Layout from "./Layout/Layout";
 import Header from "./Pages/SharedPage/Header/Header";
@@ -41,6 +38,7 @@ const router = createBrowserRouter([
       {
         path: "/all-toys",
         element: <AllToys></AllToys>,
+        loader: () => fetch("https://server-plum-rho.vercel.app/all-data"),
       },
       {
         path: "/my-toys",
@@ -48,15 +46,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-toys",
-        element:<AddToys></AddToys>
+        element: <AddToys></AddToys>,
       },
     ],
-  }, 
-     {
-        path: '*',
-        element:<Error></Error>
-      
-  }
+  },
+  {
+    path: "*",
+    element: <Error></Error>,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

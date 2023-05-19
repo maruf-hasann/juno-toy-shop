@@ -44,7 +44,7 @@ const AddToys = () => {
       </h1>
       <div>
         <form className="space-y-5" onSubmit={handleSubmit}>
-          <div className="">
+          <div className=" flex">
             <input
               placeholder="Product name"
               type="text"
@@ -54,8 +54,13 @@ const AddToys = () => {
             <input
               placeholder="Product Image"
               type="url"
-              className="input input-bordered font-semibold w-1/2 ms-4 "
+              className="input input-bordered font-semibold  ms-4 "
               name="photo"
+            />  <input
+              placeholder="Seller Email"
+              type="url"
+              className="input input-bordered font-semibold  ms-4 "
+              name="email"
             />
           </div>
           <div>
