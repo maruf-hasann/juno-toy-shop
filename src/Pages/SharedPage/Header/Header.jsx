@@ -71,8 +71,11 @@ const Header = () => {
 
           {user ? (
             <div className="hidden lg:block">
-              <div className='flex items-center gap-4'>
-                <img src={user?.photoURL} className="w-14" />
+              <div className="flex items-center gap-4">
+                <div className='text-center '>
+                  <img src={user?.photoURL} className="w-14 block" />
+                  <p className='font-semibold'>{user?.displayName}</p>
+                </div>
                 <Link to="/login">
                   <button className="button" onClick={handleLogout}>
                     Logout

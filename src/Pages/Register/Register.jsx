@@ -5,6 +5,7 @@ import useTitle from "../../CustomHook/useTitle";
 import { useForm } from "react-hook-form";
 import { authContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
 const Register = () => {
   const {createUser} = useContext(authContext)
   useTitle('Register')
@@ -17,11 +18,14 @@ const Register = () => {
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
+    const name = data.name;
+    const photo = data.photo;
     console.log(email, password);
     createUser(email, password)
       .then(result => {
         const user = result.user
         console.log(user);
+        updateUser(result.user,name,photo)
         if (user) {
          Swal.fire(
            "Registration successful Done!",
@@ -31,8 +35,18 @@ const Register = () => {
         }
 
       })
-    .then(err => console.log(err))
+    .catch(err => console.log(err))
   };
+  const updateUser = (user,name,photo) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL : photo
+    })
+      .then(() => {
+      console.log('userUpdate');
+      })
+    .catch(err => console.log(err))
+  }
   return (
     <div>
       <h1 className="text-5xl text-center font-bold text-[#181d4e] ">

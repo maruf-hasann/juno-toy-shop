@@ -24,7 +24,8 @@ const Login = () => {
         if (user) {
            Swal.fire("Login successful Done!", "Good Job!", "success");
         }
-    })
+      })
+    .catch(err => console.log(err))
   }
   // Google login
   const googleUserCreate = () => {
