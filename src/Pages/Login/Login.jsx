@@ -2,8 +2,11 @@ import React from "react";
 import Lottie from "lottie-react";
 import animation from '../../assets/Lotte/lotte.json'
 import { Link } from "react-router-dom";
+import useTitle from "../../CustomHook/useTitle";
 
 const Login = () => {
+  useTitle('Login')
+  console.log("login user", import.meta.env.VITE_authDomain);
   return (
     <div>
       <h1 className="text-5xl text-center font-bold text-[#181d4e] ">LogIn</h1>
@@ -41,7 +44,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="button">Login</button>
+               <input type="submit" value="Login" className="button" />
               </div>
             </form>
           </div>
