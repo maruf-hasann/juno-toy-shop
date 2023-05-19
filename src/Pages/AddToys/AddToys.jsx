@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
+import { authContext } from "../../AuthProvider/AuthProvider";
 
 const AddToys = () => {
+  const {user} = useContext(authContext)
  
     const handleSubmit = (event) => {
         event.preventDefault()
         const form = event.target
         const name = form.name.value
+        const email = user.email
         const photo = form.photo.value
         const seller = form.seller.value
         const category = form.category.value
@@ -16,7 +19,7 @@ const AddToys = () => {
         const description = form.description.value;
 
         const newProduct = {
-            name,photo,seller,category,price,rating,quantity,description
+            name,photo,seller,category,price,rating,quantity,description,email
         }
         console.log(newProduct);
         fetch("https://server-plum-rho.vercel.app/data", {
@@ -30,7 +33,7 @@ const AddToys = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                   Swal.fire("Good job!", "You clicked the button!", "success");
+                   Swal.fire("Produt Added!", "", "success");
                 }
                 form.reset()
             });
@@ -50,17 +53,22 @@ const AddToys = () => {
               type="text"
               className="input input-bordered font-semibold "
               name="name"
+              required
             />
             <input
               placeholder="Product Image"
               type="url"
               className="input input-bordered font-semibold  ms-4 "
               name="photo"
-            />  <input
+              required
+            />
+            <input
               placeholder="Seller Email"
-              type="url"
+              defaultValue={user?.email}
+              type="email"
               className="input input-bordered font-semibold  ms-4 "
               name="email"
+              required
             />
           </div>
           <div>
@@ -69,12 +77,14 @@ const AddToys = () => {
               type="text"
               className="input input-bordered font-semibold "
               name="seller"
+              required
             />
             <input
               placeholder="Sub-category"
               type="text"
               className="input input-bordered font-semibold ms-5 "
               name="category"
+              required
             />
           </div>
           <div>
@@ -83,12 +93,14 @@ const AddToys = () => {
               type="text"
               className="input input-bordered font-semibold "
               name="price"
+              required
             />
             <input
               placeholder="Rating"
               type="text"
               className="input input-bordered font-semibold ms-5 "
               name="rating"
+              required
             />
           </div>
           <input
@@ -96,10 +108,12 @@ const AddToys = () => {
             type="text"
             className="input input-bordered font-semibold me-5"
             name="quantity"
+            required
           />
           <textarea
             name="description"
             className="input input-bordered font-semibold"
+            required
           ></textarea>
 
           <div>

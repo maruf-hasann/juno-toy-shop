@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Lottie from "lottie-react";
 import animation from '../../assets/Lotte/lotte.json'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useTitle from "../../CustomHook/useTitle";
 import Swal from "sweetalert2";
 import { authContext } from "../../AuthProvider/AuthProvider";
@@ -9,7 +9,9 @@ import Google from '../../assets/Logo/icons8-google.svg'
 
 const Login = () => {
   const { loginUser, googleLogin } = useContext(authContext);
- 
+  const navigate = useNavigate()
+  const location = useLocation()
+  const route = location.state?.from?.pathname || "/";
   
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -20,7 +22,7 @@ const Login = () => {
     loginUser(email, password)
       .then(result => {
         const user = result.user
-        console.log(user);
+        navigate(route,{replace:true})
         if (user) {
            Swal.fire("Login successful Done!", "Good Job!", "success");
         }

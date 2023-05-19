@@ -50,6 +50,8 @@ const AuthProvider = ({ children }) => {
     loginUser,
     googleLogin,
     logOut,
+    loading,
+    setLoading
   };
   return (
     <authContext.Provider value={authData}>{children}</authContext.Provider>

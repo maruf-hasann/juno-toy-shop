@@ -18,7 +18,7 @@ const AllToys = () => {
             <th>Details</th>
           </tr>
         </thead>
-              <tbody>
+              <tbody className="font-semibold text-gray-500">
                   {
                       toys.map(toy => <ToyTable key={toy._id} toy={toy}></ToyTable>)
                 }  

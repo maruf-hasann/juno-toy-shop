@@ -30,7 +30,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/"
-                className={({ isActive }) => (isActive ? "active" : "default")}
+              
               >
                 Home
               </NavLink>
@@ -38,31 +38,39 @@ const Header = () => {
             <li>
               <NavLink
                 to="/all-toys"
-                className={({ isActive }) => (isActive ? "active" : "default")}
+              
               >
                 All Toys
               </NavLink>
             </li>
-            <li>
-              <NavLink
+            {
+              user ? <li> <NavLink
                 to="/my-toys"
-                className={({ isActive }) => (isActive ? "active" : "default")}
+             
               >
                 My Toys
-              </NavLink>
-            </li>
-            <li>
+              </NavLink></li> : ''
+            } {
+              user ? <li>
               <NavLink
                 to="/add-toys"
-                className={({ isActive }) => (isActive ? "active" : "default")}
+              
               >
                 Add A Toys
               </NavLink>
-            </li>
+            </li> : ''
+            }
             <li>
               <NavLink
+                to="/all-toys"
+               
+              >
+                Best Selling
+              </NavLink>
+            </li> <li>
+              <NavLink
                 to="/blogs"
-                className={({ isActive }) => (isActive ? "active" : "default")}
+               
               >
                 Blogs
               </NavLink>
