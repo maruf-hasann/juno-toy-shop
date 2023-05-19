@@ -1,57 +1,78 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import reg from "../../assets/Gallery/undraw_my_password_re_ydq7 (1).svg";
 import useTitle from "../../CustomHook/useTitle";
+import { useForm } from "react-hook-form";
+import { authContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 const Register = () => {
+  const {createUser} = useContext(authContext)
   useTitle('Register')
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    const email = data.email;
+    const password = data.password;
+    console.log(email, password);
+    createUser(email, password)
+      .then(result => {
+        const user = result.user
+        console.log(user);
+        if (user) {
+         Swal.fire(
+           "Registration successful Done!",
+           "Good Job!",
+           "success"
+         );
+        }
+
+      })
+    .then(err => console.log(err))
+  };
   return (
     <div>
-      <h1 className="text-5xl text-center font-bold text-[#181d4e] ">Register</h1>
+      <h1 className="text-5xl text-center font-bold text-[#181d4e] ">
+        Register
+      </h1>
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <img src={reg} alt="" />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
-              <div className="form-control">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="input input-bordered font-semibold"
-                  name="name"
-                />
-              </div>
-              <div className="form-control">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="input input-bordered font-semibold"
-                  name="email"
-                />
-              </div>
-              <div className="form-control">
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="input input-bordered font-semibold"
-                  name="password"
-                />
-              </div>
-              <div className="form-control">
-                <input
-                  type="url"
-                  placeholder="Photo URL"
-                  className="input input-bordered font-semibold"
-                  name="photo"
-                />
-              </div>
-              <div>
-                <Link to='/login' className="font-semibold">Already you have account ?</Link>
-             </div>
-              <div className="form-control mt-6">
-                <button className="button">Login</button>
-              </div>
+            <form className="space-y-4 py-11 px-10" onSubmit={handleSubmit(onSubmit)}>
+              {/* register your input into the hook by invoking the "register" function */}
+              <input
+                placeholder="Name"
+                type="text"
+                className="input input-bordered font-semibold w-full"
+                {...register("name")}
+              />
+              {/* include validation with required or other standard HTML validation rules */}
+              <input
+                type="email"
+                placeholder="Email"
+                className="input input-bordered font-semibold w-full"
+                {...register("email", { required: true })}
+              />
+              <input
+                placeholder="Password"
+                type="password"
+                className="input input-bordered font-semibold w-full"
+                {...register("password")}
+              />
+              <input
+                placeholder="Photo URL"
+                type="url"
+                className="input input-bordered font-semibold w-full"
+                {...register("photo")}
+              />{" "}
+              <br></br>
+              <input type="submit" value="Register" className="button" />
             </form>
           </div>
         </div>

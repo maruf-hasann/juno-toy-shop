@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../../assets/Logo/logo.webp'
 import { XMarkIcon, Bars3CenterLeftIcon } from "@heroicons/react/24/solid";
 import './Header.css'
+import { authContext } from '../../../AuthProvider/AuthProvider';
 const Header = () => {
-    const [openMenu, setOpenMenu] = useState(false)
-    
+  const [openMenu, setOpenMenu] = useState(false)
+  const user = useContext(authContext)
+    console.log(user);
     return (
       <nav className="my_container">
         <div className="flex justify-between items-center mt-4 lg:mt-0">
