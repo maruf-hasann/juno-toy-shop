@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import blog1 from "../../../assets/Gallery/Rectangle-10.jpg";
 import blog2 from "../../../assets/Gallery/post18-copyright.jpg";
 import blog3 from "../../../assets/Gallery/post19-copyright.jpg";
 import blog4 from "../../../assets/Gallery/post21-copyright.jpg";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 const Blog = () => {
+ useEffect(() => {
+   Aos.init({ duration: 3000 });
+ }, []);
   return (
-    <div className="my_container my-10">
+    <div className="my_container my-10" data-aos="fade-down-right">
       <h1 className="text-5xl text-center font-bold text-[#181d4e] ">Blogs</h1>
       <div className="lg:flex gap-4 mt-14 ">
         <div className="lg:flex mb-4 lg:mb-0 p-3 bg-[#edf3e2] rounded-xl gap-6 items-center">

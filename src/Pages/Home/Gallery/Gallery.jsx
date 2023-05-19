@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import img1 from '../../../assets/Gallery/post17-copyright.jpg'
 import img2 from '../../../assets/Gallery/post18-copyright.jpg'
 import img3 from '../../../assets/Gallery/post19-copyright.jpg'
 import img4 from '../../../assets/Gallery/one.jpg'
 import img6 from '../../../assets/Gallery/three.jpg'
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 
 const Gallery = () => {
+  useEffect(() => {
+    Aos.init({duration:2000});
+  }, []);
     return (
-      <div className='mb-14'>
+      <div className="mb-14" data-aos="fade-down-left">
         <h1 className="text-5xl text-center font-bold text-[#181d4e] mb-13 ">
           Our Gallery
         </h1>
