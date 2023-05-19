@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import reg from "../../assets/Gallery/undraw_my_password_re_ydq7 (1).svg";
+import useTitle from "../../CustomHook/useTitle";
 const Register = () => {
+  useTitle('Register')
   return (
     <div>
       <h1 className="text-5xl text-center font-bold text-[#181d4e] ">Register</h1>
