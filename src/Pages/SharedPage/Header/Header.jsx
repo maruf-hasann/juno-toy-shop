@@ -68,13 +68,17 @@ const Header = () => {
               </NavLink>
             </li>
           </ul>
+
           {user ? (
             <div className="hidden lg:block">
-              <Link to="/login">
-                <button className="button" onClick={handleLogout}>
-                  Logout
-                </button>
-              </Link>
+              <div className='flex items-center gap-4'>
+                <img src={user?.photoURL} className="w-14" />
+                <Link to="/login">
+                  <button className="button" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </Link>
+              </div>
             </div>
           ) : (
             <div className="hidden lg:block">
