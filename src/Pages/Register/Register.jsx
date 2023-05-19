@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import reg from "../../assets/Gallery/undraw_my_password_re_ydq7 (1).svg";
 const Register = () => {
   return (
@@ -43,6 +44,9 @@ const Register = () => {
                   name="photo"
                 />
               </div>
+              <div>
+                <Link to='/login' className="font-semibold">Already you have account ?</Link>
+             </div>
               <div className="form-control mt-6">
                 <button className="button">Login</button>
               </div>
