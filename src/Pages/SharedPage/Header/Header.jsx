@@ -4,10 +4,21 @@ import Logo from '../../../assets/Logo/logo.webp'
 import { XMarkIcon, Bars3CenterLeftIcon } from "@heroicons/react/24/solid";
 import './Header.css'
 import { authContext } from '../../../AuthProvider/AuthProvider';
+import Swal from "sweetalert2";
+
+
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false)
-  const user = useContext(authContext)
-    console.log(user);
+  const { user, logOut } = useContext(authContext);
+  // console.log(user);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+      Swal.fire("LogOut successful Done!", "Good Job!", "success");
+      })
+    .catch(err => console.log(err))
+  }
     return (
       <nav className="my_container">
         <div className="flex justify-between items-center mt-4 lg:mt-0">
@@ -57,11 +68,21 @@ const Header = () => {
               </NavLink>
             </li>
           </ul>
-          <div className="hidden lg:block">
-            <Link to="/login">
-              <button className="button">Login</button>
-            </Link>
-          </div>
+          {user ? (
+            <div className="hidden lg:block">
+              <Link to="/login">
+                <button className="button" onClick={handleLogout}>
+                  Logout
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <div className="hidden lg:block">
+              <Link to="/login">
+                <button className="button">Login</button>
+              </Link>
+            </div>
+          )}
 
           {/* Mobile Menu */}
           <div className="lg:hidden">
