@@ -1,5 +1,9 @@
 import React from "react";
 import Logo from "../../../assets/Logo/logo.webp";
+import Google from '../../../assets/Logo/icons8-google.svg'
+import Fb from '../../../assets/Logo/icons8-facebook.svg'
+import Insta from '../../../assets/Logo/icons8-instagram.svg'
+import Twitter from '../../../assets/Logo/icons8-twitter.svg'
 
 const Footer = () => {
   return (
@@ -12,7 +16,7 @@ const Footer = () => {
               - London Regent Street 188-196 Regent <br></br> Street London W1B
               5BT United Kingdom
             </p>
-           
+            <p>- jono@gmail.com</p>
           </div>
         </div>
         <div className="font-semibold text-gray-500">
@@ -42,9 +46,26 @@ const Footer = () => {
               />
               <button className="button">Subscribe</button>
             </div>
+            <div className="mt-5">
+              <ul className="flex">
+                <li>
+                  <img src={Google} alt="" className="w-10" />
+                </li>
+                <li>
+                  <img src={Fb} alt="" className="w-10" />
+                </li>
+                <li>
+                  <img src={Insta} alt="" className="w-10" />
+                </li>
+                <li>
+                  <img src={Twitter} alt="" className="w-10" />
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+      <h3 className="text-center mt-5 font-semibold text-gray-400"> &copy;2023 Juno . All rights reserved</h3>
     </footer>
   );
 };
