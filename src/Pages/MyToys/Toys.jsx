@@ -1,21 +1,48 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { authContext } from "../../AuthProvider/AuthProvider";
 import MyTable from './MyTable';
+import Swal from "sweetalert2";
 const Toys = () => {
     const { user, loading } = useContext(authContext);
     if (loading) {
       return  <progress className="progress w-56"></progress>;
     }
     const [mytoys, setMytoys] = useState([])
-        console.log(user.email);
+       
     useEffect(() => {
-        fetch(`http://localhost:3000/my-toys/${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-            setMytoys(data)
-        })
+        fetch(`https://server-plum-rho.vercel.app/my-toys/${user?.email}`)
+          .then((res) => res.json())
+          .then((data) => {
+            setMytoys(data);
+          });
     }, [user])
-    console.log(mytoys);
+  
+   const handleDelete = (id) => {
+     Swal.fire({
+       title: "Are you sure?",
+       text: "You won't be able to revert this!",
+       icon: "warning",
+       showCancelButton: true,
+       confirmButtonColor: "#3085d6",
+       cancelButtonColor: "#d33",
+       confirmButtonText: "Yes, delete it!",
+     }).then((result) => {
+       if (result.isConfirmed) {
+         fetch(`http://localhost:3000/my-toys/${id}`, {
+           method: "DELETE",
+         })
+           .then((res) => res.json())
+           .then((data) => {
+             if (data.deletedCount > 0) {
+               Swal.fire("Deleted!", "Your file has been deleted.", "success");
+               
+               const remaining = mytoys.filter(toy => toy._id !== id)
+               setMytoys(remaining)
+             }
+           });
+       }
+     });
+   };
 
     return (
       <div className="my_container">
@@ -32,9 +59,13 @@ const Toys = () => {
             </tr>
           </thead>
           <tbody className="font-semibold text-gray-500">
-                    {
-                        mytoys.map(toy => <MyTable key={toy._id} toy={toy}></MyTable>)
-          }
+            {mytoys.map((toy) => (
+              <MyTable
+                key={toy._id}
+                toy={toy}
+                handleDelete={handleDelete}
+              ></MyTable>
+            ))}
           </tbody>
         </table>
       </div>
