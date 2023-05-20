@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const TabContent = ({ product }) => {
     const {photo,name,price,rating,_id} = product || {}
     return (
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card lg:w-96 bg-base-100 shadow-xl">
         <figure>
           <img src={photo} alt="Shoes" className="h-40" />
         </figure>

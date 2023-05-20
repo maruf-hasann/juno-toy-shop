@@ -40,7 +40,7 @@ const Header = () => {
               </li>
             ) : (
               ""
-            )}{" "}
+            )}
             {user ? (
               <li>
                 <NavLink to="/add-toys">Add A Toys</NavLink>
@@ -131,16 +131,30 @@ const Header = () => {
                       ) : (
                         ""
                       )}
+
                       <li>
                         <NavLink to="/all-toys">Best Selling</NavLink>
                       </li>
-                      <li>
+                      <li className="mb-4">
                         <NavLink to="/blogs">Blogs</NavLink>
                       </li>
-                      
                     </ul>
+                    <div className='mt-3'>
+                      {user ? (
+                        <Link to="/login" className="lg:hidden">
+                          <button className="button" onClick={handleLogout}>
+                            Logout
+                          </button>
+                        </Link>
+                      ) : (
+                        <div className=" lg:hidden">
+                          <Link to="/login">
+                            <button className="button">Login</button>
+                          </Link>
+                        </div>
+                      )}
+                    </div>
                   </nav>
-                  
                 </div>
               </div>
             )}

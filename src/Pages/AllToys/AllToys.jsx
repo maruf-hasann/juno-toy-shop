@@ -5,17 +5,21 @@ import { authContext } from "../../AuthProvider/AuthProvider";
 import useTitle from "../../CustomHook/useTitle";
 
 const AllToys = () => {
-  const { loading } = useContext(authContext);
-  if (loading) {
-    return <progress className="progress w-56"></progress>;
-  }
   const [toys,setToys] = useState([])
-  const [text,setText] = useState('')
+  const [text, setText] = useState('')
+  
+  const productPerPage = 20
+   const currentPage = 0
+ 
  useTitle('All-toys')
   useEffect(() => {
-    fetch("https://server-plum-rho.vercel.app/all-data")
-      .then(res => res.json())
-    .then(data => setToys(data))
+    fetch(
+      `https://server-plum-rho.vercel.app/all-data?page=${currentPage}&product=${productPerPage}`
+    )
+      .then((res) => res.json())
+      .then((data) => {   
+        setToys(data);
+      });
   },[])
 
 
