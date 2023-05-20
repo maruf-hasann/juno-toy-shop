@@ -28,61 +28,39 @@ const Header = () => {
           </Link>
           <ul className=" lg:flex font-bold space-x-6 hidden text-gray-600">
             <li>
-              <NavLink
-                to="/"
-              
-              >
-                Home
-              </NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink
-                to="/all-toys"
-              
-              >
-                All Toys
-              </NavLink>
+              <NavLink to="/all-toys">All Toys</NavLink>
             </li>
-            {
-              user ? <li> <NavLink
-                to="/my-toys"
-             
-              >
-                My Toys
-              </NavLink></li> : ''
-            } {
-              user ? <li>
-              <NavLink
-                to="/add-toys"
-              
-              >
-                Add A Toys
-              </NavLink>
-            </li> : ''
-            }
+            {user ? (
+              <li>
+                {" "}
+                <NavLink to="/my-toys">My Toys</NavLink>
+              </li>
+            ) : (
+              ""
+            )}{" "}
+            {user ? (
+              <li>
+                <NavLink to="/add-toys">Add A Toys</NavLink>
+              </li>
+            ) : (
+              ""
+            )}
             <li>
-              <NavLink
-                to="/all-toys"
-               
-              >
-                Best Selling
-              </NavLink>
-            </li> <li>
-              <NavLink
-                to="/blogs"
-               
-              >
-                Blogs
-              </NavLink>
+              <NavLink to="/all-toys">Best Selling</NavLink>
+            </li>{" "}
+            <li>
+              <NavLink to="/blogs">Blogs</NavLink>
             </li>
           </ul>
 
           {user ? (
             <div className="hidden lg:block">
               <div className="flex items-center gap-4">
-                <div className='text-center '>
-                  <img src={user?.photoURL} className="w-14 block" />
-                  <p className='font-semibold'>{user?.displayName}</p>
+                <div className="tooltip" data-tip={user?.displayName}>
+                  <img src={user?.photoURL} className=" w-14 block " />
                 </div>
                 <Link to="/login">
                   <button className="button" onClick={handleLogout}>
@@ -137,13 +115,24 @@ const Header = () => {
                         <NavLink to="/">Home</NavLink>
                       </li>
                       <li>
-                        <NavLink to="/">All Toys</NavLink>
+                        <NavLink to="/all-toys">All Toys</NavLink>
                       </li>
+                      {user ? (
+                        <li>
+                          <NavLink to="/my-toys">My Toys</NavLink>
+                        </li>
+                      ) : (
+                        ""
+                      )}
+                      {user ? (
+                        <li>
+                          <NavLink to="/add-toys">Add A Toys</NavLink>
+                        </li>
+                      ) : (
+                        ""
+                      )}
                       <li>
-                        <NavLink to="/">My Toys</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/">Add A Toys</NavLink>
+                        <NavLink to="/all-toys">Best Selling</NavLink>
                       </li>
                       <li>
                         <NavLink to="/blogs">Blogs</NavLink>
