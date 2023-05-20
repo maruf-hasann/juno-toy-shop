@@ -23,7 +23,7 @@ const MyTable = ({ toy, handleDelete }) => {
         <td>{quantity}</td>
         <td>{category}</td>
         <td>
-          <Link>
+          <Link to={`/update/${_id}`}>
             <button className="bg-[#7eac29] font-semibold py-3 px-5 text-white rounded-2xl">
               Update
             </button>
