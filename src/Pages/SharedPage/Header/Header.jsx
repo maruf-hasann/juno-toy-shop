@@ -137,8 +137,10 @@ const Header = () => {
                       <li>
                         <NavLink to="/blogs">Blogs</NavLink>
                       </li>
+                      
                     </ul>
                   </nav>
+                  
                 </div>
               </div>
             )}
