@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: "/all-toys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("https://server-plum-rho.vercel.app/all-data"),
+       
       },
       {
         path: "/my-toys",
