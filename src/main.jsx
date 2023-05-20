@@ -14,6 +14,7 @@ import AddToys from "./Pages/AddToys/AddToys";
 import Error from "./Pages/ErrorPage/Error";
 import AuthProvider from "./AuthProvider/AuthProvider";
 import Private from "./PrivateRoute/Private";
+import ViewDetails from "./Pages/Details/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,16 @@ const router = createBrowserRouter([
             <AddToys></AddToys>
           </Private>
         ),
+      },
+      {
+        path: "/view-details/:id",
+        element: (
+          <Private>
+            <ViewDetails></ViewDetails>
+          </Private>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://server-plum-rho.vercel.app/view-details/${params.id}`),
       },
     ],
   },

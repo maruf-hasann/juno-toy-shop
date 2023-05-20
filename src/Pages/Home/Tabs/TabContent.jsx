@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TabContent = ({ product }) => {
-    const {photo,name,price,rating} = product || {}
+    const {photo,name,price,rating,_id} = product || {}
     return (
-      <div className="card w-96 bg-base-100 shadow-xl" >
+      <div className="card w-96 bg-base-100 shadow-xl">
         <figure>
-          <img src={photo} alt="Shoes" className='h-40' />
+          <img src={photo} alt="Shoes" className="h-40" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
@@ -14,7 +15,9 @@ const TabContent = ({ product }) => {
             <p> Rating: {rating} </p>
           </div>
           <div className="card-actions justify-end">
-            <button className="button">View Details</button>
+            <Link to={`/view-details/${_id}`}>
+              <button className="button">View Details</button>
+            </Link>
           </div>
         </div>
       </div>
