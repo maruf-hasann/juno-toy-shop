@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../CustomHook/useTitle";
 const Update = () => {
   const product = useLoaderData();
+  useTitle('Update')
 
   const {
     name,

@@ -9,6 +9,7 @@ import Google from '../../assets/Logo/icons8-google.svg'
 
 const Login = () => {
   const { loginUser, googleLogin } = useContext(authContext);
+  useTitle('Login')
   const navigate = useNavigate()
   const location = useLocation()
   const route = location.state?.from?.pathname || "/";

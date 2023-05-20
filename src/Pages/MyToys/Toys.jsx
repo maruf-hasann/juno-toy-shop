@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { authContext } from "../../AuthProvider/AuthProvider";
 import MyTable from './MyTable';
 import Swal from "sweetalert2";
+import useTitle from '../../CustomHook/useTitle';
 const Toys = () => {
     const { user, loading } = useContext(authContext);
     if (loading) {
       return  <progress className="progress w-56"></progress>;
     }
     const [mytoys, setMytoys] = useState([])
-       
+     useTitle('My-Toys')  
     useEffect(() => {
         fetch(`https://server-plum-rho.vercel.app/my-toys/${user?.email}`)
           .then((res) => res.json())

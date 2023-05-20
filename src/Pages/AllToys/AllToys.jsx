@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyTable from "./ToyTable";
+import { authContext } from "../../AuthProvider/AuthProvider";
+import useTitle from "../../CustomHook/useTitle";
 
 const AllToys = () => {
+  const { loading } = useContext(authContext);
+  if (loading) {
+    return <progress className="progress w-56"></progress>;
+  }
   const [toys,setToys] = useState([])
   const [text,setText] = useState('')
-
+ useTitle('All-toys')
   useEffect(() => {
     fetch("https://server-plum-rho.vercel.app/all-data")
       .then(res => res.json())
