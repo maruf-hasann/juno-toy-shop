@@ -1,9 +1,7 @@
 
-# Toy Shop
+# JUNO Toy shop
 
-
-
-
+ Full-stack assignment on Toy Marketplace
 
 ## 🔗 Live Website Link
 
