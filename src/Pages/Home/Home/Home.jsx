@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import Gallery from '../Gallery/Gallery';
 import Review from '../Reviews/Review';
 import Blog from '../Blog/Blog';
+import HomeTab from '../Tabs/HomeTab';
 
 
 const Home = () => {
@@ -11,8 +12,10 @@ const Home = () => {
       <div>
         <Banner ></Banner>
         <Gallery></Gallery>
+        <HomeTab></HomeTab>
         <Review></Review>
         <Blog></Blog>
+
       </div>
     );
 };
