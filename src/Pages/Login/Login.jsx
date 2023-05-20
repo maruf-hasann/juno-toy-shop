@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const route = location.state?.from?.pathname || "/";
-  
+  const [error,setError] = useState('')
   const handleSubmit = (event) => {
     event.preventDefault()
     const form = event.target;
@@ -26,8 +26,9 @@ const Login = () => {
         if (user) {
            Swal.fire("Login successful Done!", "Good Job!", "success");
         }
+        setError('');
       })
-    .catch(err => console.log(err))
+    .catch(err => setError(err.message))
   }
   // Google login
   const googleUserCreate = () => {
@@ -35,7 +36,9 @@ const Login = () => {
       .then(result => {
       const user = result.user
       })
-      .then(err => console.log(err.message))
+      .catch(err => {
+        setError(err.message)
+      })
   }
 
   return (
@@ -75,6 +78,7 @@ const Login = () => {
                     Or register{" "}
                   </Link>
                 </label>
+                <p className="font-semibold text-red-500">{error}</p>
                 
               </div>
               <div className="form-control mt-6">

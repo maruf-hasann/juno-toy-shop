@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import reg from "../../assets/Gallery/undraw_my_password_re_ydq7 (1).svg";
 import useTitle from "../../CustomHook/useTitle";
@@ -7,7 +7,8 @@ import { authContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 const Register = () => {
-  const {createUser} = useContext(authContext)
+  const { createUser } = useContext(authContext)
+  const {err,setErr} = useState('')
   useTitle('Register')
   const {
     register,
@@ -35,7 +36,7 @@ const Register = () => {
         }
 
       })
-    .catch(err => console.log(err))
+    .catch(err => setErr(err.message))
   };
   const updateUser = (user,name,photo) => {
     updateProfile(user, {
@@ -45,7 +46,7 @@ const Register = () => {
       .then(() => {
       console.log('userUpdate');
       })
-    .catch(err => console.log(err))
+    .catch(err => setErr(err.message))
   }
   return (
     <div>
@@ -58,7 +59,10 @@ const Register = () => {
             <img src={reg} alt="" />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="space-y-4 py-11 px-10" onSubmit={handleSubmit(onSubmit)}>
+            <form
+              className="space-y-4 py-11 px-10"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               {/* register your input into the hook by invoking the "register" function */}
               <input
                 placeholder="Name"
@@ -86,6 +90,9 @@ const Register = () => {
                 {...register("photo")}
               />{" "}
               <br></br>
+              <p className="font-semibold text-red-500 mb-5">
+                {err}
+              </p>
               <input type="submit" value="Register" className="button" />
             </form>
           </div>

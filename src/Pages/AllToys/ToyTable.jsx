@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ToyTable = ({ toy }) => {
   const {
@@ -10,6 +11,7 @@ const ToyTable = ({ toy }) => {
     rating,
     quantity,
     description,
+    _id
   } = toy;
 
   return (
@@ -22,7 +24,11 @@ const ToyTable = ({ toy }) => {
         <td>{category}</td>
         <td>{seller}</td>
         <td>
-          <button className="bg-[#7eac29] font-semibold py-3 px-5 text-white rounded-2xl">View Details</button>
+          <Link to={`/view-details/${_id}`}>
+            <button className="bg-[#7eac29] font-semibold py-3 px-5 text-white rounded-2xl">
+              View Details
+            </button>
+          </Link>
         </td>
       </tr>
     </>
