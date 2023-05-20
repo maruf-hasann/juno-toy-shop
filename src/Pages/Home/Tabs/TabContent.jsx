@@ -14,7 +14,7 @@ const TabContent = ({ product }) => {
             <p> Price : {price} $</p>
             <p> Rating: {rating} </p>
           </div>
-          <div className="card-actions justify-end">
+          <div className="card-actions justify-center">
             <Link to={`/view-details/${_id}`}>
               <button className="button">View Details</button>
             </Link>

@@ -17,14 +17,14 @@ const ViewDetails = () => {
     return (
       <div className="my_container">
         <h1 className=" mb-10 text-5xl text-center font-bold text-[#181d4e] ">
-          Product Info
+          Product Details ..
         </h1>
         <div className="card card-side bg-base-100 shadow-xl">
           <figure>
             <img src={photo} alt="Movie" className="h-40" />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-3xl">{name}</h2>
+            <h2 className="card-title text-4xl mb-6">{name}</h2>
             <div className="flex font-semibold">
               <p>Price: {price} $</p>
               <p>Rating: {rating} </p>
