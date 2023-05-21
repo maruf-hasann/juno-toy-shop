@@ -13,8 +13,8 @@ const Blog = () => {
     <div className="my_container my-10" data-aos="fade-down-right">
       <h1 className="text-5xl text-center font-bold text-[#181d4e] ">Blogs</h1>
       <div className="lg:flex gap-4 mt-14 ">
-        <div className="lg:flex mb-4 lg:mb-0 p-3 bg-[#edf3e2] rounded-xl gap-6 items-center">
-          <img src={blog1} alt="" className="w-1/2 h-auto rounded-xl" />
+        <div className="lg:flex mb-4 lg:mb-0 p-5 bg-[#edf3e2] rounded-xl gap-6 items-center">
+          <img src={blog1} alt="" className="lg:w-1/2 h-auto rounded-xl" />
 
           <div className="space-y-4">
             <p className="text-gray-400 font-semibold">Feb 10, 2023</p>
@@ -24,8 +24,8 @@ const Blog = () => {
             <button className="button">Read More</button>
           </div>
         </div>{" "}
-        <div className="lg:flex bg-[#faf7eb]  rounded-xl gap-6 items-center">
-          <img src={blog2} alt="" className="w-1/2 h-auto rounded-xl" />
+        <div className="lg:flex bg-[#faf7eb]  rounded-xl gap-6 items-center p-5">
+          <img src={blog2} alt="" className="lg:w-1/2 h-auto rounded-xl" />
 
           <div className="space-y-4">
             <p className="text-gray-400 font-semibold">Feb 29, 2023</p>
@@ -37,8 +37,8 @@ const Blog = () => {
         </div>
       </div>{" "}
       <div className="lg:flex gap-4 my-5 ">
-        <div className="lg:flex p-3 bg-[#faf7eb] rounded-xl gap-6 items-center">
-          <img src={blog3} alt="" className="w-1/2 h-auto rounded-xl" />
+        <div className="lg:flex p-5 bg-[#faf7eb] rounded-xl gap-6 items-center  ">
+          <img src={blog3} alt="" className="lg:w-1/2 h-auto rounded-xl" />
 
           <div className="space-y-4">
             <p className="text-gray-400 font-semibold">Feb 10, 2023</p>
@@ -47,9 +47,9 @@ const Blog = () => {
             </h3>
             <button className="button">Read More</button>
           </div>
-        </div>{" "}
-        <div className="lg:flex mt-3 lg:mt-0 bg-[#edf3e2] rounded-xl gap-6 items-center">
-          <img src={blog4} alt="" className="w-1/2 h-auto rounded-xl" />
+        </div>
+        <div className="lg:flex mt-3 lg:mt-0 bg-[#edf3e2] rounded-xl gap-6 items-center p-5">
+          <img src={blog4} alt="" className="lg:w-1/2 h-auto rounded-xl" />
 
           <div className="space-y-4">
             <p className="text-gray-400 font-semibold">Feb 29, 2023</p>

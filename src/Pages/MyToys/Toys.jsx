@@ -29,16 +29,16 @@ const Toys = () => {
        confirmButtonText: "Yes, delete it!",
      }).then((result) => {
        if (result.isConfirmed) {
-         fetch(`http://localhost:3000/my-toys/${id}`, {
+         fetch(`https://server-plum-rho.vercel.app/my-toys/${id}`, {
            method: "DELETE",
          })
            .then((res) => res.json())
            .then((data) => {
              if (data.deletedCount > 0) {
                Swal.fire("Deleted!", "Your file has been deleted.", "success");
-               
-               const remaining = mytoys.filter(toy => toy._id !== id)
-               setMytoys(remaining)
+
+               const remaining = mytoys.filter((toy) => toy._id !== id);
+               setMytoys(remaining);
              }
            });
        }
